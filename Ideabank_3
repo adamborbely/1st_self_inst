@@ -1,0 +1,35 @@
+import sys
+
+file_path = "ideabank.txt"
+
+arg = (sys.argv)
+
+if "--list" in arg:
+    lines = [line.rstrip('\n') for line in open(file_path)]
+
+    for element in lines:
+        print(lines.index(element)+1, element)
+elif "--delete" in arg:
+    a = arg.index("--delete")
+    b = (int(arg[a + 1]) - 1)
+    del_1 = open(file_path, 'r').readlines()
+    with open(file_path, "w") as output:
+        for index,line in enumerate(del_1):
+            if index != b:
+                output.write(line)
+
+    lines = [line.rstrip('\n') for line in open(file_path)]
+
+    for element in lines:
+        print(lines.index(element)+1, element)
+else:
+    text = input("What's your idea? ")
+
+    with open(file_path, "a" ) as file:
+        file.write(text)
+        file.write("\n")
+
+    lines = [line.rstrip('\n') for line in open(file_path)]
+
+    for element in lines:
+       print(lines.index(element)+1, element)
