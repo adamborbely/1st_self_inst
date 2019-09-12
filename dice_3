@@ -1,0 +1,71 @@
+import random
+
+dice_att = []
+dice_def = []
+x = 1
+
+while True:
+  unit_a = (input("How many units attack: "))
+  if unit_a in ["1", "2", "3"]:
+    unit_a = int(unit_a)
+    break
+
+while True:
+  unit_d = (input("How many units defend: "))
+  if unit_d in ["1", "2"]:
+    unit_d = int(unit_d)
+    break
+
+while x <= unit_a:
+    dice_att.append(random.randrange(1,7))
+    x +=1
+
+x = 1
+
+while x <= unit_d:
+    dice_def.append(random.randrange(1,7))
+    x +=1
+
+
+print("Dice:") 
+print(2* " ","Attacker:",dice_att)
+print(2* " ","Defender:",dice_def)
+
+
+if unit_a == 1:
+  dice_att.extend([0, 0])
+elif unit_a == 2:
+  dice_att.extend([0])
+
+
+if unit_d == 1:
+  dice_def.extend([0])
+
+
+a = sorted(dice_att, reverse = True)
+d = sorted(dice_def, reverse = True)
+
+a_1 = a[0]
+a_2 = a[1]
+d_1 = d[0]
+d_2 = d[1]
+
+att_count = 0
+def_count = 0
+
+if d_1 >= a_1:
+    att_count += 1
+else:
+    def_count += 1
+
+if a_2 > 0 and d_2> 0:
+  if d_2 >= a_2:
+    att_count += 1
+  else:
+    def_count += 1
+    
+print()
+print("Outcome: ")
+print(2 * " "+"Attacker: Lost " + str(att_count)+" units")
+print(2 * " "+"Defender: Lost " + str(def_count)+" units")
+
