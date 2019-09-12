@@ -1,0 +1,42 @@
+import random
+x = 1
+dice_att = []
+dice_def = []
+
+while x <= 5:
+    if x <= 3:
+        dice_att.append(random.randrange(1,7))
+        x +=1
+    else:
+        dice_def.append(random.randrange(1,7))
+        x +=1
+
+print("Dice:") 
+print(2* " ","Attacker:",dice_att[0],"-", dice_att[1], "-", dice_att[2])
+print(2* " ","Defender:",dice_def[0],"-", dice_def[1])
+
+a = sorted(dice_att, reverse = True)
+d = sorted(dice_def, reverse = True)
+
+a_1 = a[0]
+a_2 = a[1]
+d_1 = d[0]
+d_2 = d[1]
+
+att_count = 0
+def_count = 0
+
+if d_1 >= a_1:
+    att_count += 1
+else:
+    def_count += 1
+
+if d_2 >= a_2:
+    att_count += 1
+else:
+    def_count += 1
+
+print()
+print("Outcome: ")
+print(2 * " "+"Attacker: Lost " + str(att_count)+" units")
+print(2 * " "+"Defender: Lost " + str(def_count)+" units")
