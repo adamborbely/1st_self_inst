@@ -1,0 +1,25 @@
+#import random
+#
+#Dice_1 = random.randrange(1, 7)
+#Dice_2 = random.randrange(1, 7)
+#Dice_3 = random.randrange(1, 7)
+#
+#Dice_4 = random.randrange(1, 7)
+#Dice_5 = random.randrange(1, 7)
+#
+#print("Dice:")
+#print(4 * " ", "Attacker:",Dice_1, "-",Dice_2, "-",Dice_3 )
+#print(4 * " ", "Defender:",Dice_4, "-",Dice_5)
+
+
+import random
+x = 1
+dice_rolls = []
+
+while x <= 5:
+  dice_rolls.append(random.randrange(1,7))
+  x += 1
+
+print("Dice:") 
+print(4 * " ","Attacker:",dice_rolls[0],"-", dice_rolls[1], "-", dice_rolls[2])
+print(4 * " ","Defender:",dice_rolls[3],"-", dice_rolls[4])
