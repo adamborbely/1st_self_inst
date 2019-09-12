@@ -1,0 +1,12 @@
+file_path = "ideabank.txt"
+
+text = input("What's your idea? ")
+
+with open(file_path, "a" ) as file:
+    file.write(text)
+    file.write("\n")
+
+lines = [line.rstrip('\n') for line in open(file_path)]
+
+for element in lines:
+   print(lines.index(element)+1, element)
