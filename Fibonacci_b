@@ -1,0 +1,26 @@
+lista = [0]
+
+mennyi = input("Tell me how many Fibonacci numbers you wanna see: ")
+num = int(mennyi)
+
+i = 0
+j = 1
+k = 0
+fib = 0
+
+
+while i < (num-1):
+    fib = j + k
+    j = k
+    k = fib
+    i = i + 1
+    lista.append(fib)
+
+
+for i in range(len(lista)):
+    b = str(i+1)
+    c = len(b)
+    d = len(str(lista[i]))
+
+    print(b +":" + (30 - c -d) * " ",end = " ")
+    print(lista[i])
