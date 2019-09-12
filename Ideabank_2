@@ -1,0 +1,22 @@
+import sys
+
+file_path = "ideabank.txt"
+
+arg = (sys.argv)
+
+if "--list" in arg:
+    lines = [line.rstrip('\n') for line in open(file_path)]
+
+    for element in lines:
+        print(lines.index(element)+1, element)
+else:
+    text = input("What's your idea? ")
+
+    with open(file_path, "a" ) as file:
+        file.write(text)
+        file.write("\n")
+
+    lines = [line.rstrip('\n') for line in open(file_path)]
+
+    for element in lines:
+       print(lines.index(element)+1, element)
